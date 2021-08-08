@@ -1,4 +1,6 @@
 
+## the functions to do variable selection
+
 library(bestglm)
 
 straw_choice <- function(df_straw_nzero){
@@ -37,8 +39,8 @@ wood_choice <- function(df_wood_nzero){
     var_wood <- na.omit(var_wood)
     set.seed(123) 
     ind <- sample(2, nrow(var_wood), replace = TRUE, prob = c(0.7, 0.3))
-    train <- var_wood[ind==1, ] #得到训练集
-    test <- var_wood[ind==2, ] #得到测试集
+    train <- var_wood[ind==1, ] 
+    test <- var_wood[ind==2, ] 
     full.fit <- glm(y0_wood ~ ., family = gaussian, data = train)
     test.values <- predict(full.fit, newdata = test)
     Xy <- train
