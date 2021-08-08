@@ -6,9 +6,9 @@ library(bestglm)
 straw_choice <- function(df_straw_nzero){
   
     var_straw <- dplyr::select(as.data.frame(df_straw_nzero),
-                              f_pop, f_size, 
-                               f_inc, cr, f_land, Ex_coal, Ex_forest, 
-                               Ex_hydro, Ex_road, y0_straw)
+                              H_pop, H_size, 
+                               H_inc, P_straw, P_land, P_coal, P_forest, 
+                               P_hydro, P_road, y0_straw)
 
     var_straw <- na.omit(var_straw)
     set.seed(123) 
@@ -32,9 +32,9 @@ straw_choice <- function(df_straw_nzero){
 wood_choice <- function(df_wood_nzero){
   
     var_wood <- dplyr::select(as.data.frame(df_wood_nzero),
-                              f_pop, f_size, 
-                               f_inc, cr, f_land, Ex_coal, Ex_forest, 
-                               Ex_hydro, Ex_road, y0_wood)
+                              H_pop, H_size, 
+                               H_inc, P_straw, P_land, P_coal, P_forest, 
+                               P_hydro, P_road, y0_wood)
 
     var_wood <- na.omit(var_wood)
     set.seed(1234) 
