@@ -2,6 +2,8 @@
 
 ## option 1-6
 
+mdoel.selection <- function(name, formula_num){
+
 formula_1 <- y ~ f_pop +  f_size  + f_inc  + f_land + Ex_forest + 
   Ex_road + Ex_coal + cr + year
 
@@ -39,3 +41,8 @@ formula_6 <- y ~ f_pop + I(f_pop^2) + I(f_pop^3) +
   f(year, model = "ar",order = 2) +
   f(pro, model = "besagproper", graph = wood.nb.rs) +
   + f(pro2, year, model="iid", constr=TRUE)
+  
+formula <- switch(formula_num, formula_1, formula_2, formula_3, formula_4,
+                   formula_5, formula_6)
+}
+  
