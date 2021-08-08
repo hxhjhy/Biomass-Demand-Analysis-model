@@ -7,9 +7,11 @@ BDA model is a machine learning estimation to recover the massive biomass consum
 # The codes include:
 1) process_data.R is the function to prepare the data
 2) biomass_main.R is the main script of code for the paper
-3) inla_compute.R is functions to run Bayesian spatial-temproal model
-4) choice_variable.R is functions to make variable selection
-5) model_validation.R is functions to make cross-validation
-6) biomass_plot.R is functions to plot pictures
+3) choice_variable.R is functions to make variable selection
+4) inla_compute.R is functions to run Bayesian spatial-temproal model
+5) predict_compute.R is a function to predict the biomass consumption using the trained model
+6) model_validation.R is functions to make cross-validation
 7) model_selection.R is functions to select the best model
+8) biomass_plot.R is functions to plot pictures
+
 
