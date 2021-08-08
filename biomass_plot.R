@@ -21,7 +21,7 @@ plot.group.year <- function(comb.group.yv){
     coord_fixed(xlim = c(0, 10),ylim = c(0, 10)) +
     labs(x= "true_value(log)",y = "predict_value(log)")
   
-  #¹¹???×¢ÊÍÊý¾Ý¿ò+ theme_bw() 
+  #æž„???æ³¨é‡Šæ•°æ®æ¡†+ theme_bw() 
   library(ggpubr)
   f_labels <- data.frame(obs.flag = c("straw", "wood"), 
                          N = c(paste("N", "== 71", sep= ""),
@@ -70,7 +70,7 @@ plot.group.year.t <- function(comb.group.yv){
     labs(x= "true_value(log)",y = "predict_value(log)")
   
   
-  #¹¹???×¢ÊÍÊý¾Ý¿ò
+  #æž„???æ³¨é‡Šæ•°æ®æ¡†
   library(ggpubr)
   f_labels <- data.frame( N = paste("N", "== 208", sep= ""), 
                           formula = 'Predicted ~ 0.91*Observed+0.54',
@@ -115,7 +115,7 @@ plot.group.pro <- function(comb.group.pv){
     labs(x= "true_value(log)",y = "predict_value(log)")
   
 
-  #¹¹???×¢ÊÍÊý¾Ý¿ò
+  #æž„???æ³¨é‡Šæ•°æ®æ¡†
   library(ggpubr)
   f_labels <- data.frame(group.flag = c("straw", "wood"), 
                          N = c(paste("N", "== 71", sep= ""),
@@ -163,7 +163,7 @@ plot.group.pro.t <- function(comb.group.pv){
     labs(x= "true_value(log)",y = "predict_value(log)")
   
   
-  #¹¹???×¢ÊÍÊý¾Ý¿ò
+  #æž„???æ³¨é‡Šæ•°æ®æ¡†
   library(ggpubr)
   f_labels <- data.frame( N = paste("N", "== 208", sep= ""), 
                           formula = 'Predicted ~ 0.89*Observed+0.64',
@@ -198,7 +198,7 @@ plot.obs.jsv <- function(comb.obs.jsv){
     coord_fixed(xlim = c(0, 10),ylim = c(0, 10)) + theme_bw() 
   
   
-  #¹¹???×¢ÊÍÊý¾Ý¿ò
+  #æž„???æ³¨é‡Šæ•°æ®æ¡†
   library(ggpubr)
   f_labels <- data.frame(group.flag = c("obs.straw", "obs.wood"), 
                          N = c(paste("N", "== 55", sep= ""), 
@@ -237,7 +237,7 @@ plot.obs.jsv.t <- function(comb.obs.jsv){
     coord_fixed(xlim = c(0, 10),ylim = c(0, 10)) + theme_bw() 
   
   
-  #¹¹???×¢ÊÍÊý¾Ý¿ò
+  #æž„???æ³¨é‡Šæ•°æ®æ¡†
   library(ggpubr)
   f_labels <- data.frame( N = paste("N", "== 87", sep= ""), 
                           formula = 'Predicted ~ 0.57*Observed+2.26',
@@ -272,7 +272,7 @@ plot.obs.hbv <- function(comb.obs.hbv){
     coord_fixed(xlim = c(0, 10),ylim = c(0, 10)) + theme_bw() 
   
   
-  #¹¹???×¢ÊÍÊý¾Ý¿ò
+  #æž„???æ³¨é‡Šæ•°æ®æ¡†
   library(ggpubr)
   f_labels <- data.frame(obs.flag = c("obs.straw", "obs.wood"), 
                          N = c(paste("N", "== 46", sep= ""), 
@@ -311,7 +311,7 @@ plot.obs.hbv.t <- function(comb.obs.jsv){
     coord_fixed(xlim = c(0, 10),ylim = c(0, 10)) + theme_bw() 
   
   
-  #¹¹???×¢ÊÍÊý¾Ý¿ò
+  #æž„???æ³¨é‡Šæ•°æ®æ¡†
   library(ggpubr)
   f_labels <- data.frame( N = paste("N", "== 97", sep= ""), 
                           formula = 'Predicted ~ 0.68*Observed+1.55',
