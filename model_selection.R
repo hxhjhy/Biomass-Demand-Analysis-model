@@ -2,7 +2,7 @@
 
 ## option 1-6
 
-mdoel.selection <- function(name, formula_num){
+mdoel.selection <- function(formula_num){
 
 formula_1 <- y ~ f_pop +  f_size  + f_inc  + f_land + Ex_forest + 
   Ex_road + Ex_coal + cr + year
