@@ -10,22 +10,46 @@ RMSE <- function(x){
 ### five-folds to cross-validation
 valid_cross_test <- function(name, valid_group,ene_num){
   response = paste("y0",name, sep = "_")
-  #switch(ene_num, set.seed(121), set.seed(124), set.seed(33), set.seed(44))
+  switch(ene_num, set.seed(21), set.seed(22))
   valid_group <- valid_group[which(!is.na(valid_group[,response])),]
-  #data_idx = sample(1:nrow(valid_group), size = 0.8 * nrow(valid_group)) ## train data is 80%
-  #valid_group$link <- NA
-  #trn_data = valid_group[data_idx, ]
-  #valid_group[-data_idx,"link"] <- 1  ### the conterpart of the row of data_idx is to predict
+  data_idx = sample(1:nrow(valid_group), size = 0.8 * nrow(valid_group)) ## train data is 80%
+  valid_group$link <- NA
+  trn_data = valid_group[data_idx, ]
+  valid_group[-data_idx,"link"] <- 1  ### the conterpart of the row of data_idx is to predict
   model.inla <- ene.inla(name, 6, valid_group)
-  #pred_value <- na.omit((round(model.inla$summary.fitted.values$mean,3)))[-data_idx]
-  pred_value <- na.omit((round(model.inla$summary.fitted.values$mean,3)))
-  true_value <- as.matrix(valid_group[,response])[,]
-  #true_value <- as.matrix(valid_group[which(valid_group$link == 1),response])[,]
+  pred_value <- na.omit((round(model.inla$summary.fitted.values$mean,3)))[-data_idx]
+  true_value <- as.matrix(valid_group[which(valid_group$link == 1),response])[,]
   data <- data.frame(pred_value = pred_value, true_value = true_value)
   MAPE<- MAPE(data)
   RMSE <- RMSE(data)
   ls <- list(MAPE,RMSE, summary(lm(pred_value~true_value, data = data))$r.squared, model.inla)
 }
+
+
+valid_test <- function(name, ene, valid_group){
+
+  list = c(as.matrix(unique(valid_group[name])))  #year or pro
+  lst <- list()
+  i = 0
+  for (n in list){
+    i = i + 1 
+    data <- valid_group
+    data$link <- NA
+    response = paste("y0",ene, sep = "_")
+    data[which(data[name] == n),response] <- NA
+    data[which(data[name] == n),"link"] <- 1    #need to predict
+    m.inla <- ene.inla(ene,6,data)
+    pred_value <- na.omit((round(m.inla$summary.fitted.values$mean,3))[data$link])
+    lst[[i]] <- data.frame(pred = pred_value, 
+                           true = valid_group[which(valid_group[name] == n),response],
+                           flag = data[which(data[name] == n),name])
+  }
+  group_v <- Reduce(function(x,y) merge(x,y,all=T),lst)  ### combine the list
+}
+
+
+
+
 
 MAPE.m <- function(x){  
   #abs(mean((pred - true)/true))
