@@ -131,12 +131,9 @@ pvg.straw <- pvg.straw %>% rename(true = y0_straw)
 
 #plot------------------------------------------------------------
 
-lst.obs = list( yvo.wood, yvo.straw, yvo.biogas)
-lst.group = list(yvg.wood, yvg.straw, yvg.biogas)
+## year.group
+lst.group = list(yvg.wood, yvg.straw)
 comb.group.yv <- Reduce(function(x,y) merge(x,y,all=T),lst.group)  ### combine the list
-comb.obs.yv <- Reduce(function(x,y) merge(x,y,all=T),lst.obs)  ### combine the list
-
-## year.group------------------------------------------------------------------------
 comb.group.yv <- group_result_v(comb.group.yv)
 
 jpeg(file = "LOOCV-group-year.jpg",width=600*4,height=3*600,res=72*2)   # by every type
@@ -148,11 +145,8 @@ plot.group.year.t(comb.group.yv)
 while (!is.null(dev.list()))  dev.off()
 
 ## province.group------------------------------------------------------------------------
-#lst.obs.p = list( pvo.wood, pvo.straw,  pvo.biogas)
-lst.group.p = list(pvg.wood, pvg.straw, pvg.biogas)
+lst.group.p = list(pvg.wood, pvg.straw)
 comb.group.pv <- Reduce(function(x,y) merge(x,y,all=T),lst.group.p)  ### combine the list
-#comb.obs.pv <- Reduce(function(x,y) merge(x,y,all=T),lst.obs.p)  ### combine the list
-
 comb.group.pv <- group_result_pv(comb.group.pv)
 
 jpeg(file = "LOOCV-group-province.jpg",width=600*4,height=3*600,res=72*2)   # by every type
