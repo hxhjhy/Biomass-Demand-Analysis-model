@@ -104,7 +104,7 @@ valid_machine_test <- function(name, data, ene_num){
 
 listLearners()$class
 
-# ## 划分样本集
+# ## 禄庐路脰脩霉卤戮录炉
 # data_idx = sample(1:nrow(group_wood.m), size = 0.8 * nrow(group_wood.m)) ## train data is 80%
 # trn_data = group_wood.m[data_idx, ]
 # tst_data = group_wood.m[-data_idx, ]
