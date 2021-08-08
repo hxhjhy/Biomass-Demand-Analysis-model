@@ -162,34 +162,3 @@ straw_process <- function(df_data){
   
   result <- list(group_straw,df_straw_nzero)
 }
-
-ele_process <- function(df_data){
-  df_ele <- df_data
-  df_ele <- df_ele[which(is.na(df_ele$y0_ele) == F),]
-  df_ele_nzero <- filter(df_ele, y0_ele!=0)
-  df_ele_nzero <- df_ele_nzero %>% group_by(pro, year) %>% summarise(n = n()) %>% left_join(df_ele_nzero, by = c("pro","year"))
-  
-  group_ele <- dplyr::select(df_ele_nzero, -y0_wood, -y0_dung,
-                             -y0_coal, -y0_gas, -y0_biogas, -y0_straw, - province) %>%
-    group_by(year,pro) %>%  # groupings
-    summarise_each(funs(mean))          # operation
-  
-  group_ele$y0_ele <- log(group_ele$y0_ele)
-   
-  ##combined with df_predict
-  df_predict$n <- NA
-  group_ele <- df_predict %>%
-    dplyr::select(-y0_wood, -y0_dung,
-                  -y0_coal, -y0_gas, -y0_biogas, -y0_straw) %>%
-    rbind(group_ele) 
-  
-  group_ele$Ex_coal <- log(group_ele$Ex_coal)
-  group_ele$Ex_hydro <- log(group_ele$Ex_hydro)
-  group_ele$Ex_road <- log(group_ele$Ex_road)  
-  group_ele$Ex_forest <- log(group_ele$Ex_forest)    
-  group_ele$cr <- log(group_ele$cr)      
-  group_ele$f_inc <- log(group_ele$f_inc) 
-  #group_ele$f_size <- log(group_ele$f_size) 
-  
-  result <- list(group_ele, df_ele_nzero)
-}
