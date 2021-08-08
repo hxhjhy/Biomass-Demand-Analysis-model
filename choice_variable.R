@@ -37,7 +37,7 @@ wood_choice <- function(df_wood_nzero){
                                Ex_hydro, Ex_road, y0_wood)
 
     var_wood <- na.omit(var_wood)
-    set.seed(123) 
+    set.seed(1234) 
     ind <- sample(2, nrow(var_wood), replace = TRUE, prob = c(0.7, 0.3))
     train <- var_wood[ind==1, ] 
     test <- var_wood[ind==2, ] 
