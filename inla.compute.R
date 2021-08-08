@@ -1,7 +1,7 @@
 
 ## Model compute--------------------------------------------------
 
-ene.inla <- function(name, formula_num, data){     #using name to select model
+ene.inla <- function(name, formula_num, data){     #using formula_num to select model
   data <- data%>% rename(y = exp(paste("y0",name,sep = "_")))
 
   data$pro2 <- data$pro
