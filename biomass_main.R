@@ -51,8 +51,8 @@ nb <- poly2nb(map)
 head(nb)
 nb2INLA("map.adj", nb)
 g <- inla.read.graph(filename = "map.adj")
-wood.nb <- nb2mat(nb, style = "B", zero.policy= T) 
-#wood.nb.rs <- nb2mat(nb, style = "W", zero.policy= T) 
+#wood.nb <- nb2mat(nb, style = "B", zero.policy= T) 
+wood.nb.rs <- nb2mat(nb, style = "W", zero.policy= T) 
 image(inla.graph2matrix(g),xlab="",ylab="")
 # Plot results
 coords <- coordinates(map)
@@ -74,22 +74,13 @@ straw.inla <- ene.inla("straw",6,group_straw)
 straw_result_province <- fitted_value(group_straw, straw.inla)[[1]]
 straw_result_nation <- fitted_value(group_straw, straw.inla)[[2]]
 
-## ele-----------------------------------------------------------
-group_ele <-ele_process(df_data)[[1]]
-df_ele_nzero <- ele_process(df_data)[[2]]
-ele.inla <- ene.inla("ele",6,group_ele)
-ele_result_province <- fitted_ele(group_ele, ele.inla)[[1]]
-ele_result_nation <- fitted_ele(group_ele, ele.inla)[[2]]
-
 ## save_result--------------------------------------------------
 
 library("openxlsx")
 sheets = list("wood_result_nation" = wood_result_nation, 
           "wood_result_province" = wood_result_province,
           "straw_result_nation" = straw_result_nation, 
-          "straw_result_province" = straw_result_province, 
-          "ele_result_nation" = ele_result_nation, 
-          "ele_result_province" = ele_result_province)
+          "straw_result_province" = straw_result_province)
 
 write.xlsx(sheets,"result_combined.xlsx")
 
