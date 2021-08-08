@@ -51,18 +51,3 @@ wood_choice <- function(df_wood_nzero){
          main = "error by Feature Inclusion")
     coef(Bestglm.fit$BestModel)  ##find the optimal variables
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
