@@ -1,7 +1,7 @@
 # Biomass-Demand-Analysis-model(BDA model)
 
 
-BDA model is a machine learning estimation to recover the massive biomass consumption in China. Estimates revealed large uncounted biomass consumption in China between 1992-2015. These estimates were produed within a Bayesian framework using a spatially and temporally explicit generalized linear regression model. The dataset include household survey data (such as family income, fiamliy size, building area) and provincial statistics data (such as farmland, forest area, rural road length).  All data are available from the corresponding author Chu wei (xiaochu@ruc.edu.cn) upon reasonable request.
+BDA model is a machine learning estimation to recover the massive biomass consumption in China. Estimates revealed large uncounted biomass consumption in China between 1992-2016. These estimates were produed within a Bayesian framework using a spatially and temporally explicit generalized linear regression model. The dataset include household survey data (such as family income, fiamliy size, building area) and provincial statistics data (such as farmland, forest area, rural road length).  All data are available from the corresponding author Chu wei (xiaochu@ruc.edu.cn) upon reasonable request.
 
 
 # The codes include:
